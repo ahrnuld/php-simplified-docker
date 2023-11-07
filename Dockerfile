@@ -17,6 +17,8 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN composer config --global use-parent-dir true
+
 
 # Install PDO MySQL PHP extension
 RUN docker-php-ext-install pdo_mysql
